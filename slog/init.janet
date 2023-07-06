@@ -3,8 +3,11 @@
 (var *level* 1)
 (def- levels [:debug :info :warn :error :fatal :unknown])
 
-(defn text-handler [dict]
-  (string/join (seq [[k v] :pairs dict] (string k "=" v))
+(defn- text-handler [dict]
+  (def order [:time :level :msg])
+  (def sorted (sort-by |(index-of (first $) order)
+                       (pairs dict)))
+  (string/join (seq [[k v] :in sorted] (string k "=" v))
                " "))
 
 (defn- new-record [keys time-fn]
@@ -13,7 +16,7 @@
 
 (defn new [buf &opt encode-fn time-fn]
   (default encode-fn text-handler)
-  (default time-fn |(:strftime (:gmtime (date/time)) :iso8601))
+  (default time-fn |(date/format (date/time) :iso8601 true)) # true means "in UTC"
 
   (fn [&keys keys]
     (def write-fn (if (buffer? buf) buffer/push file/write))
@@ -37,3 +40,4 @@
 (defn unknown [msg &keys keys]
   (*default* :level :unknown :msg msg ;(kvs keys)))
 
+(defn set-default [logger] (set *default* logger))
