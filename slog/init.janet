@@ -1,6 +1,6 @@
 (import date)
 
-(var *level* 1)
+(var *level* 0)
 (def- levels [:debug :info :warn :error :fatal :unknown])
 
 (defn- text-handler [dict]
