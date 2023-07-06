@@ -1,0 +1,12 @@
+(import date)
+(import ../slog)
+(import json)
+
+(slog/info "loool")
+(def info slog/info)
+(def stream @"")
+# (def logger (slog/new stream slog/text-handler))
+(def logger (slog/new stream json/encode))
+(set slog/*default* logger)
+(slog/info "loool")
+(info "hello" :count 3 :a 1 :b 2 :c (:strftime (:gmtime (date/time)) :iso8601))
