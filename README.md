@@ -58,9 +58,11 @@ takes an even-numbered tuple and returns a string:
 
 ```janet
 (defn format-json [tuple] (json/encode (struct ;tuple)))
-(def mylogger (slog/new stdout :formatter format-json))
-(mylogger :level :debug)
-#=> stdout: {"time":"2023-07-07T19:02:13Z","level":"debug"}
+(def jsonlogger (slog/new stdout :formatter format-json))
+(jsonlogger :level :debug :msg "message")
+#=> stdout: {"time":"2023-07-07T19:02:13Z","msg":"message","level":"debug"}
+# make this the default logger
+(slog/set-default jsonlogger)
 ```
 
 #### Custom time
