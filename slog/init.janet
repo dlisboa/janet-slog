@@ -1,5 +1,3 @@
-(import json)
-
 (defn- now []
   "Current UTC time in iso8601"
   (let [date (os/date)
