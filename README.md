@@ -1,6 +1,6 @@
 # slog
 
-Slog is a structured logging library, modeled after Golang's equally named `slog`.
+Slog is a structured logging library, modeled after Go's equally named `slog`.
 
 ## Usage
 
