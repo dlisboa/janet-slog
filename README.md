@@ -51,6 +51,7 @@ You can make this the default logger:
 # time="2023-07-07T19:00:42Z" level="info" msg="custom"
 # time="2023-07-07T19:02:13Z" level="debug" msg="another one"
 ```
+#### JSON
 
 Output can be changed to JSON by passing a formatter, which is a function which
 takes an even-numbered tuple and returns a string:
@@ -62,6 +63,7 @@ takes an even-numbered tuple and returns a string:
 #=> stdout: {"time":"2023-07-07T19:02:13Z","level":"debug"}
 ```
 
+#### Custom time
 By default time is time in UTC formatted in ISO 8601. That can also be changed,
 by passing a function which takes no arguments and returns a string:
 
