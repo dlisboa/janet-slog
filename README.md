@@ -89,3 +89,7 @@ get printed:
 (slog/fatal "will print")
 (slog/unknown "will print")
 ```
+
+## Contributing
+
+Contributions are welcome! The whole code is only 60-ish lines, easy to read and add improvements.
