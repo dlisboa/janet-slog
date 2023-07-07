@@ -1,8 +1,7 @@
 (declare-project
   :name "slog"
   :description ```slog is a structured logging library. ```
-  :dependencies ["https://github.com/cosmictoast/janet-date"]
-  :version "0.0.0")
+  :version "0.1.0")
 
 (declare-source
   :prefix "slog"
